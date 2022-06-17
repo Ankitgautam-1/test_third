@@ -7,42 +7,60 @@ import User_3 from '../../assets/images/Avatar/03.png';
 import HeartIcon from '../../assets/images/heart.svg';
 import Moment from 'react-moment';
 import './ShowMyNFT.scss';
+import { useAddress } from '@thirdweb-dev/react';
 const ShowMyNFT = () => {
-	const [nfts, setnft] = useState([]);
-	useEffect(() => {
-		getNFTCollection();
-	}, []);
+	const address = useAddress();
+	console.log(address);
+
 	const getNFTCollection = async () => {
 		const nftCollection = await fetch(
-			'https://testnets-api.opensea.io/api/v1/collections?asset_owner=0x9818e25A2302ffB93AeF10DAc19822ac9Cb7bA23&offset=0&limit=300'
+			`https://testnets-api.opensea.io/api/v1/collections?asset_owner=${address}&offset=0&limit=300`
 		);
 		const nftCollectionJson = await nftCollection.json();
+		console.log(nftCollectionJson);
+
 		setnft(nftCollectionJson);
 	};
+	const [nfts, setnft] = useState([]);
+	useEffect(() => {
+		if (address !== undefined) {
+			getNFTCollection();
+		}
+	}, [address]);
+	if (address === undefined) {
+		return <div>Login please</div>;
+	}
+
 	return (
-		<div className='main_container'>
-			<span className='title'>Our NFT</span>
+		<div className="main_container">
+			<span className="title">Our NFT</span>
 			<div className="nft_container">
-				{nfts.map((nft:[]|any, i) => {
+				{nfts.map((nft: [] | any, i) => {
 					return (
 						<div key={i}>
 							<div className="card_container">
 								<img
-                                    className="image"
-									src={nft["primary_asset_contracts"].map((details:any)=>{
-                                        return details["image_url"]
-                                    })}
-                                    object-fit="cover"
+									className="image"
+									src={nft['primary_asset_contracts'].map(
+										(details: any) => {
+											return details['image_url'];
+										}
+									)}
+									object-fit="cover"
 									alt=""
-                                    height={"100%"}
-                                    
-                                    
+									height={'100%'}
 								/>
 								<div className="header">
 									<h6 className="name">
-										{nft["primary_asset_contracts"].map((details:any)=>{
-                                            return <span key={details["name"]}>{details["name"]}</span>
-                                        })}
+										{nft['primary_asset_contracts'].map(
+											(details: any) => {
+												return (
+													<span key={details['name']}>
+														{details['name']}
+													</span>
+												);
+											}
+										)}
 									</h6>
 									<div className="price_contanier">
 										{' '}
@@ -55,10 +73,21 @@ const ShowMyNFT = () => {
 										alt="Clock"
 										className="clock_icon"
 									/>
-									{nft["primary_asset_contracts"].map((details:any)=>{
-                                            return <Moment toNow key={details["created_date"]} className ="date">{details["created_date"]}</Moment>
-                                        })}
-                                        
+									{nft['primary_asset_contracts'].map(
+										(details: any) => {
+											return (
+												<Moment
+													toNow
+													key={
+														details['created_date']
+													}
+													className="date"
+												>
+													{details['created_date']}
+												</Moment>
+											);
+										}
+									)}
 								</div>
 								<hr className="divider" />
 							</div>
