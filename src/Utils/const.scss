@@ -1,0 +1,15 @@
+$navbar_links_text_color:#7780A1;
+$circle_color:#f7f4f4;
+$circle_background:#ffffff;
+$primary_button_color:#733efe;
+$secondary_button_color:#ffffff;
+@mixin  flex_jc_ic{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+@mixin flex_jc{
+    display: flex;
+    justify-content: space-between;
+    
+}

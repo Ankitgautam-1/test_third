@@ -1,0 +1,6 @@
+@import "../../Utils/const.scss";
+.circle{
+    border-radius: 50%;
+    border: 1px $circle_color solid;
+    position: absolute;
+}

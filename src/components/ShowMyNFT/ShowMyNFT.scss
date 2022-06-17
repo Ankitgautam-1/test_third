@@ -1,0 +1,29 @@
+.main_container{
+    .title{
+        display:flex;
+        font-weight: 600;
+        font-size: xx-large;
+        margin-bottom: 30px;
+        margin-top: 60px;
+        justify-content: center;
+    }
+    .nft_container {
+	display: flex;
+	padding: 0 20px;
+	gap: 20px;
+	.image {
+		object-fit: cover;
+	}
+    .card_container{
+        .time_details{
+            .date{
+                font-size: small;
+                font-weight: 600;
+                margin-left: 10px;
+            }
+        }
+    }
+}
+}
+
+

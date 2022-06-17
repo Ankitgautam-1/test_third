@@ -1,0 +1,81 @@
+@import '../../Utils/const.scss';
+.navbar_head {
+    z-index: 99;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	.nav_head {
+		display: flex;
+		width: 100%;
+		max-width: 1400px;
+		justify-content: space-between;
+		align-items: center;
+		padding: 0.5rem 2rem;
+		.nav_links_container {
+			color: $navbar_links_text_color;
+			list-style: none;
+			display: flex;
+			align-items: center;
+			font-size: 0.9rem;
+			font-weight: 500;
+			:not(:last-child) {
+				margin-right: 1.8rem;
+			}
+			li {
+				cursor: pointer;
+			}
+		}
+		.nav_buttons {
+			button {
+				cursor: pointer;
+			}
+			:not(:last-child) {
+				margin-right: 10px;
+			}
+			.nav_button_contact {
+				font-weight: 500;
+				background: white;
+				border: 1px solid #4745d0;
+				color: #4745d0;
+
+				border-radius: 12px;
+				height: 40px;
+				width: 117px;
+			}
+			.nav_button_wallet_disconnect {
+				background: linear-gradient(to right, purple, blue);
+				border: none;
+				color: white;
+
+				border-radius: 12px;
+				height: 40px;
+				padding: 0 20px;
+				transition: 500ms ease-in;
+				&:hover {
+					background: linear-gradient(
+						to right,
+						rgb(112, 1, 112),
+						rgb(0, 0, 215)
+					);
+				}
+			}
+			.nav_button_myaccount {
+				background: linear-gradient(to right, purple, blue);
+				border: none;
+				color: white;
+
+				border-radius: 12px;
+				height: 40px;
+				width: 117px;
+				transition: 500ms ease-in;
+				&:hover {
+					background: linear-gradient(
+						to right,
+						rgb(112, 1, 112),
+						rgb(0, 0, 215)
+					);
+				}
+			}
+		}
+	}
+}
