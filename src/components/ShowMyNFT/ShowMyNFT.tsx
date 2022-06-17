@@ -8,16 +8,18 @@ import HeartIcon from '../../assets/images/heart.svg';
 import Moment from 'react-moment';
 import './ShowMyNFT.scss';
 import { useAddress } from '@thirdweb-dev/react';
+import { useNavigate } from 'react-router-dom';
 const ShowMyNFT = () => {
+	const navigate = useNavigate();
 	const address = useAddress();
 	console.log(address);
 
 	const getNFTCollection = async () => {
 		const nftCollection = await fetch(
-			`https://testnets-api.opensea.io/api/v1/collections?asset_owner=${address}&offset=0&limit=300`
+			`https://testnets-api.opensea.io/api/v1/collections?asset_owner=${address}`
 		);
 		const nftCollectionJson = await nftCollection.json();
-		console.log(nftCollectionJson);
+		console.log('nftCollectionJson', nftCollection);
 
 		setnft(nftCollectionJson);
 	};
@@ -33,11 +35,16 @@ const ShowMyNFT = () => {
 
 	return (
 		<div className="main_container">
-			<span className="title">Our NFT</span>
+			<span className="title">Your NFTs Collections</span>
 			<div className="nft_container">
 				{nfts.map((nft: [] | any, i) => {
 					return (
-						<div key={i}>
+						<div
+							key={i}
+							onClick={() => {
+								navigate('/details/' + address);
+							}}
+						>
 							<div className="card_container">
 								<img
 									className="image"
@@ -90,6 +97,7 @@ const ShowMyNFT = () => {
 									)}
 								</div>
 								<hr className="divider" />
+								<div></div>
 							</div>
 						</div>
 					);
