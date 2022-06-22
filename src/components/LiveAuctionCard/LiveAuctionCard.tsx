@@ -28,10 +28,10 @@ const LiveAuctionCard = ({}) => {
 					<img src={User_3} alt="User_3" className="image" />
 					<h6 className="num_people">35 people are biding</h6>
 				</div>
-                <div className='likes'>
-                    <img src={HeartIcon} alt="HeartIcon" />
-                    <h6> 120</h6>
-                </div>
+				<div className="likes">
+					<img src={HeartIcon} alt="HeartIcon" />
+					<h6> 120</h6>
+				</div>
 			</div>
 		</div>
 	);

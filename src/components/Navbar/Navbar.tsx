@@ -9,11 +9,12 @@ import {
 } from '@thirdweb-dev/react';
 import { useDispatch } from 'react-redux';
 import { SignIn, SignOut } from '../../Store/Users/userActions';
+import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
 	const address = useAddress();
 	const account = useAccount();
-	
+	const navigate = useNavigate();
 
 	const dispatch = useDispatch();
 	const connectWithMetamask = useMetamask();
@@ -31,7 +32,16 @@ const Navbar = () => {
 					<li>Community</li>
 				</div>
 				<div className="nav_buttons">
-					<button className="nav_button_contact">Contact</button>
+					{address && (
+						<button
+							className="nav_button_contact"
+							onClick={() => {
+								navigate('/mywallet');
+							}}
+						>
+							My Wallet
+						</button>
+					)}
 					{address ? (
 						<>
 							<button

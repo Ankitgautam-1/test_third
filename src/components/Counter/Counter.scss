@@ -1,19 +1,20 @@
-.counter_conatanier{
-    width: 100%;
-    max-width: 800px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto;
-    margin: 50px auto;
-    gap: 90px;
-    .user{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        h5{
-            color:gray;
-            font-weight:500;
-        }
-    }
+.counter_conatanier {
+	z-index: 99;
+	width: 100%;
+	max-width: 800px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 0 auto;
+	margin: 50px auto;
+	gap: 90px;
+	.user {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		h5 {
+			color: gray;
+			font-weight: 500;
+		}
+	}
 }

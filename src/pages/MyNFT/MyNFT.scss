@@ -1,0 +1,59 @@
+.nft-drop {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	.nftdrop_contanier {
+		margin: 0 10px;
+		display: flex;
+		flex-direction: column;
+		width: 250px;
+		padding: 10px 20px;
+		border: 1px black solid;
+		border-radius: 10px;
+		min-width: 250px;
+	}
+	.users_nfts {
+		margin-top: 20px;
+
+		display: flex;
+		flex-direction: row;
+		overflow-x: scroll;
+		gap: 20px;
+		padding: 0 10px;
+		.nft_card {
+			border-radius: 20px;
+			border: 1px black solid;
+			padding: 10px 10px;
+			.nft_image {
+				width: 250px;
+				height: 250px;
+				object-fit: cover;
+				border-radius: 10px;
+			}
+			.desc {
+				.nft_name {
+					font-size: 1.2rem;
+					font-weight: 600;
+					color: #2a27c9;
+				}
+				.token {
+					font-size: 0.8rem;
+					width: 250px;
+					overflow-x: hidden;
+					font-weight: 600;
+					color: #2a27c9;
+				}
+				.creater {
+					display: flex;
+					align-items: center;
+					gap: 10px;
+					.creater_profile {
+						width: 90px;
+						height: 90px;
+						border-radius: 10px;
+					}
+				}
+			}
+		}
+	}
+}
